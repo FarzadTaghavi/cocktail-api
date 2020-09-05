@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 
 function Cocktails() {
   const [cocktails, setCocktails] = useState([]);
-  console.log("start state:", cocktails);
+
   useEffect(() => {
     async function getData() {
       const res = await axios.get(
         "https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list"
       );
       console.log("fetched data: ", res.data);
+
       setCocktails(res.data.drinks);
     }
     getData();
@@ -18,11 +19,11 @@ function Cocktails() {
 
   return (
     <div>
-      <h1>Cocktails...</h1>
+      <h1>Search by category:</h1>
       <div>
         {cocktails.map((cocktail, index) => {
           return (
-            <Link key={index} to={`/cocktail/${cocktail.strCategory}`}>
+            <Link key={index} to={`/category/${cocktail.strCategory}`}>
               <div key={index}>
                 <p>{cocktail.strCategory}</p>
               </div>

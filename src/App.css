@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.categories > img {
+  width: 50%;
+}
+
+.details > img {
+  width: 50%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams, Link, NavLink } from "react-router-dom";
 
 function CocktailsPage() {
   const [cocktailData, setCocktailData] = useState([]);
@@ -20,13 +20,19 @@ function CocktailsPage() {
 
   return (
     <div>
-      <h1>Cocktail Images</h1>
+      <h1>
+        <Link style={{ margin: 20 }} activeClassName="active" to="/category">
+          Search by category
+        </Link>
+        - {route_parameters.category}'s
+      </h1>
+      <h2>All {route_parameters.category}'s</h2>
       {cocktailData.map((cocktail) => {
         return (
-          <div key={cocktail.idDrink}>
-            <Link to={`/cocktail/details/${cocktail.idDrink}`}>
+          <div className="categories" key={cocktail.idDrink}>
+            <NavLink to={`/details/${cocktail.idDrink}`}>
               <p>{cocktail.strDrink}</p>
-            </Link>
+            </NavLink>
             <img alt={cocktailData.idDrink} src={cocktail.strDrinkThumb} />
           </div>
         );

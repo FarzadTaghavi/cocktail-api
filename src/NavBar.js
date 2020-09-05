@@ -12,8 +12,11 @@ function NavBar() {
       >
         Home
       </NavLink>
-      <NavLink activeClassName="active" to="/cocktails">
-        Cocktails
+      <NavLink activeClassName="active" to="/category">
+        Search by category
+      </NavLink>
+      <NavLink style={{ margin: 20 }} activeClassName="active" to="/search">
+        Search by name
       </NavLink>
     </div>
   );
